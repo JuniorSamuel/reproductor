@@ -1,0 +1,16 @@
+C:\Users\Samy\source\repos\reproductor\bin\Debug\reproductor.exe.config
+C:\Users\Samy\source\repos\reproductor\bin\Debug\reproductor.exe
+C:\Users\Samy\source\repos\reproductor\bin\Debug\reproductor.pdb
+C:\Users\Samy\source\repos\reproductor\bin\Debug\Interop.WMPLib.dll
+C:\Users\Samy\source\repos\reproductor\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.csprojAssemblyReference.cache
+C:\Users\Samy\source\repos\reproductor\obj\Debug\Interop.WMPLib.dll
+C:\Users\Samy\source\repos\reproductor\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.csproj.ResolveComReference.cache
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.Form1.resources
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.Properties.Resources.resources
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.csproj.GenerateResource.cache
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.csproj.CoreCompileInputs.cache
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.exe
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.pdb
+C:\Users\Samy\source\repos\reproductor\obj\Debug\reproductor.csproj.CopyComplete

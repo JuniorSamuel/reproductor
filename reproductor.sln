@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reproductor", "reproductor.csproj", "{2AA20A81-860F-4739-8274-F2B0FE81086B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PjtReproductor", "..\..\..\Desktop\PjtReproductor\PjtReproductor\PjtReproductor\PjtReproductor.csproj", "{15FBEB6E-BA5F-4BFE-9361-29A4E1BEE328}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AA20A81-860F-4739-8274-F2B0FE81086B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA20A81-860F-4739-8274-F2B0FE81086B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA20A81-860F-4739-8274-F2B0FE81086B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA20A81-860F-4739-8274-F2B0FE81086B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FBEB6E-BA5F-4BFE-9361-29A4E1BEE328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FBEB6E-BA5F-4BFE-9361-29A4E1BEE328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FBEB6E-BA5F-4BFE-9361-29A4E1BEE328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FBEB6E-BA5F-4BFE-9361-29A4E1BEE328}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EABC7F6-4ECF-4549-9E5C-7B858AB0CDAE}
+	EndGlobalSection
+EndGlobal
