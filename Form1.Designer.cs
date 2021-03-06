@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.media = new AxWMPLib.AxWindowsMediaPlayer();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelFinal = new System.Windows.Forms.Label();
@@ -43,23 +42,23 @@
             this.btAtras = new System.Windows.Forms.Button();
             this.macTrackBar1Duracion = new XComponent.SliderBar.MACTrackBar();
             this.panelList = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.macTrackBar2Volumen = new XComponent.SliderBar.MACTrackBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmSlider = new System.Windows.Forms.Timer(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reproducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemReproducir = new System.Windows.Forms.ToolStripMenuItem();
             this.itemPause = new System.Windows.Forms.ToolStripMenuItem();
             this.siguienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anteriorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.labelOri = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.media)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelList.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -67,6 +66,9 @@
             // 
             // media
             // 
+            this.media.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.media.Enabled = true;
             this.media.Location = new System.Drawing.Point(0, 27);
             this.media.Name = "media";
@@ -74,21 +76,19 @@
             this.media.Size = new System.Drawing.Size(700, 370);
             this.media.TabIndex = 0;
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
             // listBox1
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(3, 21);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(194, 342);
+            this.listBox1.Size = new System.Drawing.Size(254, 328);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
@@ -110,6 +110,7 @@
             // 
             // labelFinal
             // 
+            this.labelFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelFinal.AutoSize = true;
             this.labelFinal.Location = new System.Drawing.Point(565, 32);
             this.labelFinal.Name = "labelFinal";
@@ -128,6 +129,7 @@
             // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackgroundImage = global::reproductor.Properties.Resources._057_playlist;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderSize = 0;
@@ -141,6 +143,7 @@
             // 
             // btVolumen
             // 
+            this.btVolumen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btVolumen.BackgroundImage = global::reproductor.Properties.Resources._103_volume;
             this.btVolumen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVolumen.FlatAppearance.BorderSize = 0;
@@ -154,6 +157,7 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.BackgroundImage = global::reproductor.Properties.Resources._068_skip_button;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 0;
@@ -167,6 +171,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackgroundImage = global::reproductor.Properties.Resources._007_pause_button;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
@@ -180,6 +185,7 @@
             // 
             // btAtras
             // 
+            this.btAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btAtras.BackgroundImage = global::reproductor.Properties.Resources._003_previous;
             this.btAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAtras.FlatAppearance.BorderSize = 0;
@@ -193,6 +199,9 @@
             // 
             // macTrackBar1Duracion
             // 
+            this.macTrackBar1Duracion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.macTrackBar1Duracion.BackColor = System.Drawing.Color.Transparent;
             this.macTrackBar1Duracion.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.macTrackBar1Duracion.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,12 +228,26 @@
             // panelList
             // 
             this.panelList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelList.Controls.Add(this.labelOri);
             this.panelList.Controls.Add(this.button4);
             this.panelList.Controls.Add(this.listBox1);
-            this.panelList.Location = new System.Drawing.Point(488, 12);
+            this.panelList.Location = new System.Drawing.Point(428, 12);
             this.panelList.Name = "panelList";
-            this.panelList.Size = new System.Drawing.Size(200, 378);
+            this.panelList.Size = new System.Drawing.Size(260, 378);
             this.panelList.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::reproductor.Properties.Resources._001_play_button;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(8, 352);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(22, 22);
+            this.button4.TabIndex = 6;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // macTrackBar2Volumen
             // 
@@ -234,7 +257,7 @@
             this.macTrackBar2Volumen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.macTrackBar2Volumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.macTrackBar2Volumen.IndentHeight = 6;
-            this.macTrackBar2Volumen.Location = new System.Drawing.Point(147, 286);
+            this.macTrackBar2Volumen.Location = new System.Drawing.Point(146, 284);
             this.macTrackBar2Volumen.Maximum = 100;
             this.macTrackBar2Volumen.Minimum = 0;
             this.macTrackBar2Volumen.Name = "macTrackBar2Volumen";
@@ -262,18 +285,6 @@
             // 
             this.tmSlider.Tick += new System.EventHandler(this.tmSlider_Tick);
             // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::reproductor.Properties.Resources._001_play_button;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(12, 351);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(22, 22);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
@@ -287,7 +298,6 @@
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.reproducciónToolStripMenuItem,
-            this.configuracionesToolStripMenuItem,
             this.acercaDeToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -303,6 +313,13 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
             // reproducciónToolStripMenuItem
             // 
             this.reproducciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -314,11 +331,37 @@
             this.reproducciónToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.reproducciónToolStripMenuItem.Text = "Reproducción ";
             // 
-            // configuracionesToolStripMenuItem
+            // itemReproducir
             // 
-            this.configuracionesToolStripMenuItem.Name = "configuracionesToolStripMenuItem";
-            this.configuracionesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.configuracionesToolStripMenuItem.Text = "configuraciones";
+            this.itemReproducir.Image = global::reproductor.Properties.Resources._008_play_button;
+            this.itemReproducir.Name = "itemReproducir";
+            this.itemReproducir.Size = new System.Drawing.Size(138, 22);
+            this.itemReproducir.Text = "Reproduccir";
+            this.itemReproducir.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // itemPause
+            // 
+            this.itemPause.Image = global::reproductor.Properties.Resources._007_pause_button;
+            this.itemPause.Name = "itemPause";
+            this.itemPause.Size = new System.Drawing.Size(138, 22);
+            this.itemPause.Text = "Pausar";
+            this.itemPause.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // siguienteToolStripMenuItem
+            // 
+            this.siguienteToolStripMenuItem.Image = global::reproductor.Properties.Resources._068_skip_button;
+            this.siguienteToolStripMenuItem.Name = "siguienteToolStripMenuItem";
+            this.siguienteToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.siguienteToolStripMenuItem.Text = "Siguiente";
+            this.siguienteToolStripMenuItem.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // anteriorToolStripMenuItem
+            // 
+            this.anteriorToolStripMenuItem.Image = global::reproductor.Properties.Resources._003_previous;
+            this.anteriorToolStripMenuItem.Name = "anteriorToolStripMenuItem";
+            this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.anteriorToolStripMenuItem.Text = "Anterior";
+            this.anteriorToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -327,44 +370,18 @@
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
-            // itemReproducir
+            // openFile
             // 
-            this.itemReproducir.Image = global::reproductor.Properties.Resources._008_play_button;
-            this.itemReproducir.Name = "itemReproducir";
-            this.itemReproducir.Size = new System.Drawing.Size(180, 22);
-            this.itemReproducir.Text = "Reproduccir";
-            this.itemReproducir.Click += new System.EventHandler(this.button2_Click);
+            this.openFile.FileName = "openFileDialog1";
             // 
-            // itemPause
+            // labelOri
             // 
-            this.itemPause.Image = global::reproductor.Properties.Resources._007_pause_button;
-            this.itemPause.Name = "itemPause";
-            this.itemPause.Size = new System.Drawing.Size(180, 22);
-            this.itemPause.Text = "Pausar";
-            this.itemPause.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // siguienteToolStripMenuItem
-            // 
-            this.siguienteToolStripMenuItem.Image = global::reproductor.Properties.Resources._068_skip_button;
-            this.siguienteToolStripMenuItem.Name = "siguienteToolStripMenuItem";
-            this.siguienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.siguienteToolStripMenuItem.Text = "Siguiente";
-            this.siguienteToolStripMenuItem.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // anteriorToolStripMenuItem
-            // 
-            this.anteriorToolStripMenuItem.Image = global::reproductor.Properties.Resources._003_previous;
-            this.anteriorToolStripMenuItem.Name = "anteriorToolStripMenuItem";
-            this.anteriorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.anteriorToolStripMenuItem.Text = "Anterior";
-            this.anteriorToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.labelOri.AutoSize = true;
+            this.labelOri.Location = new System.Drawing.Point(4, 4);
+            this.labelOri.Name = "labelOri";
+            this.labelOri.Size = new System.Drawing.Size(109, 13);
+            this.labelOri.TabIndex = 7;
+            this.labelOri.Text = "Lista de reproducción";
             // 
             // Form1
             // 
@@ -382,10 +399,10 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.media)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelList.ResumeLayout(false);
+            this.panelList.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -396,7 +413,6 @@
         #endregion
 
         private AxWMPLib.AxWindowsMediaPlayer media;
-        private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelList;
@@ -421,8 +437,9 @@
         private System.Windows.Forms.ToolStripMenuItem itemPause;
         private System.Windows.Forms.ToolStripMenuItem siguienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anteriorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuracionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.Label labelOri;
     }
 }
 

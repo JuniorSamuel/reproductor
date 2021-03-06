@@ -14,7 +14,7 @@ namespace reproductor
     public partial class Form1 : Form
     {
         Lista listCanciones;
-        int play = 1;
+        int play = -1;
         int pL = 0;
         int vl = 50;
         public Form1()
@@ -24,7 +24,20 @@ namespace reproductor
             init();
         }
 
+        public void seleccion()
+        {
+            listBox1.SetSelected(listCanciones.getSelector(), true);
+        }
         private void init()
+        {
+
+            cargarMult();
+            panelList.Visible = false;
+            macTrackBar2Volumen.Visible = false;           
+           
+        }
+
+        public void cargarMult()
         {
             listCanciones.addCancion(Directory.GetFiles("C:\\Users\\Samy\\Music", "*.mp3", SearchOption.AllDirectories));
             foreach (String can in listCanciones.getList())
@@ -32,12 +45,7 @@ namespace reproductor
                 FileInfo info = new FileInfo(can);
                 listBox1.Items.Add(info.Name);
             }
-
-            panelList.Visible = false;
-            macTrackBar2Volumen.Visible = false;           
-           
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             btVolumen.Tag = (macTrackBar2Volumen.Value = media.settings.volume = vl).ToString();
@@ -49,8 +57,7 @@ namespace reproductor
             int index = listBox1.SelectedIndex;
             media.URL = (String) listCanciones.getList()[index];
             listCanciones.setSelector(index);
-            tmSlider.Start();
-            macTrackBar1Duracion.Enabled = true;
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,12 +85,22 @@ namespace reproductor
                 itemPause.Enabled = true;
                 play = 0;
             }
+            else
+            {
+                media.URL = listCanciones.reproduciendo();
+                tmSlider.Start();
+                macTrackBar1Duracion.Enabled = true;
+                play = 0;
+                seleccion();
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             listCanciones.atras();
             media.URL = listCanciones.reproduciendo();
+            seleccion();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -95,6 +112,7 @@ namespace reproductor
         {
             listCanciones.siguiente();
             media.URL = listCanciones.reproduciendo();
+            seleccion();
         }
 
         private void macTrackBar1Duracion_ValueChanged(object sender, decimal value)
@@ -134,6 +152,7 @@ namespace reproductor
                 panelList.Visible = false;
                 pL = 0;
             }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -179,6 +198,45 @@ namespace reproductor
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            openFile.InitialDirectory = "C:\\Users\\Samy\\Music";
+            openFile.Filter = "Archivo de audio y video|*.mp3;*.mp4;.*;";
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    String file = openFile.FileName;
+                    listCanciones.addCancion(file);
+                    FileInfo info = new FileInfo(file);
+                    listBox1.Items.Add(info.Name);
+                }
+                catch (Exception)
+                {
+
+                }
+
+               
+            }
+       
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void media_VisibleChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("REalizado por junior samuel.");
+        }
+
+        private void origenDeMusicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

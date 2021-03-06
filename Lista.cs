@@ -24,8 +24,7 @@ namespace reproductor
 
         public String reproduciendo()
         {
-            Console.WriteLine(list.Count);
-            if (list.Count > -1 )
+            if (list.Count > -1 && list.Count >= sel)
             {
                 reproducir = (String) list[sel];
             }
@@ -58,6 +57,11 @@ namespace reproductor
         public void setSelector(int index)
         {
             sel = index;
+        }
+
+        public int getSelector()
+        {
+            return sel;
         }
 
         public void setReproducir(String cancion)
@@ -101,6 +105,11 @@ namespace reproductor
         public String getDirecction()
         {
             return direcction;
+        }
+
+        public void limpiar()
+        {
+            list.Clear();
         }
     }
 
